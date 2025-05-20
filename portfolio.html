@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Genesis Diaz</title>
+    <meta name="description" content="Explore the portfolio of Genesis Diaz: web design, e-commerce, and creative gallery projects.">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <header>
+        <nav class="menu" id="main-menu">
+            <button class="menu-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="menu-list">
+                <span class="menu-icon"></span>
+            </button>
+            <ul id="menu-list">
+                <li><a href="Home.html">HOME</a></li>
+                <li class="active"><a href="portfolio.html" class="active">PORTFOLIO</a></li>
+                <li><a href="Resume.html">RESUME</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                🌙
+            </button>
+        </nav>
+    </header>
+    <main>
+        <section class="portfolio-hero">
+            <div class="max-width">
+                <h1 class="portfolio-title">My Portfolio</h1>
+                <p class="portfolio-subtitle">A selection of my favorite projects and work.</p>
+            </div>
+        </section>
+        <section class="portfolio-grid-section">
+            <div class="portfolio-grid max-width">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Personal Website Project" class="portfolio-img">
+                    <div class="portfolio-card-body">
+                        <h3 class="portfolio-card-title">Personal Website</h3>
+                        <p class="portfolio-card-desc">A modern responsive website to showcase my skills, resume, and contact information. Built with HTML, CSS, and JavaScript for a seamless user experience.</p>
+                        <a href="#" class="portfolio-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                </div>
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="E-Commerce App Project" class="portfolio-img">
+                    <div class="portfolio-card-body">
+                        <h3 class="portfolio-card-title">E-Commerce App</h3>
+                        <p class="portfolio-card-desc">A full-stack e-commerce application with user authentication, product management, and payment integration. Developed using React, Node.js, and MongoDB.</p>
+                        <a href="#" class="portfolio-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                </div>
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Portfolio Gallery Project" class="portfolio-img">
+                    <div class="portfolio-card-body">
+                        <h3 class="portfolio-card-title">Portfolio Gallery</h3>
+                        <p class="portfolio-card-desc">A gallery web app to display and filter creative works, built with modern JavaScript frameworks and a mobile-first design approach.</p>
+                        <a href="#" class="portfolio-link" target="_blank"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="Home.html">Home</a> |
+            <a href="portfolio.html">Portfolio</a> |
+            <a href="Resume.html">Resume</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Terms of Use</a>
+        </nav>
+        <span>Created By <a href="https://www.codingnepalweb.com">Genesis Diaz</a> | <span class="far fa-copyright"></span> 2020 All rights reserved.</span>
+    </footer>
+    <script>
+      // Dark/Light mode toggle logic
+      const toggleBtn = document.getElementById('theme-toggle');
+      if (toggleBtn) {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          document.body.classList.add('dark-mode');
+          toggleBtn.textContent = '☀️';
+        }
+        toggleBtn.addEventListener('click', () => {
+          document.body.classList.toggle('dark-mode');
+          const isDark = document.body.classList.contains('dark-mode');
+          toggleBtn.textContent = isDark ? '☀️' : '🌙';
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      }
+      // Responsive menu toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const menuList = document.getElementById('menu-list');
+      if (menuBtn && menuList) {
+        menuBtn.addEventListener('click', function() {
+          menuList.classList.toggle('show');
+          menuBtn.setAttribute('aria-expanded', menuList.classList.contains('show'));
+        });
+      }
+    </script>
+</body>
+</html>
